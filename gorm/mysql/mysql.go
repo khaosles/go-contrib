@@ -39,12 +39,12 @@ func (m *Mysql) GetLogMode() string {
 }
 
 func init() {
-	var msql *Mysql
+	var msql Mysql
 	var err error
-	if err = config.Configuration(APP, msql); err != nil {
+	if err = config.Configuration(APP, &msql); err != nil {
 		glog.Fatal(err)
 	}
-	if DB, err = New(msql); err != nil {
+	if DB, err = New(&msql); err != nil {
 		glog.Fatal(err)
 	}
 }

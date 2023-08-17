@@ -31,11 +31,11 @@ func (s *Sqlite) Dsn() string {
 
 func init() {
 	var err error
-	var sql *Sqlite
-	if err = config.Configuration(APP, sql); err != nil {
+	var sql Sqlite
+	if err = config.Configuration(APP, &sql); err != nil {
 		glog.Fatal(err)
 	}
-	if DB, err = New(sql); err != nil {
+	if DB, err = New(&sql); err != nil {
 		glog.Fatal(err)
 	}
 }

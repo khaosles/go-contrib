@@ -33,12 +33,12 @@ type Etcd struct {
 }
 
 func init() {
-	var e *Etcd
+	var e Etcd
 	var err error
-	if err = config.Configuration(APP, e); err != nil {
+	if err = config.Configuration(APP, &e); err != nil {
 		glog.Fatal(err)
 	}
-	if Client, err = New(e); err != nil {
+	if Client, err = New(&e); err != nil {
 		glog.Fatal(err)
 	}
 }

@@ -46,11 +46,11 @@ func (m *Pgsql) GetLogMode() string {
 
 func init() {
 	var err error
-	var psql *Pgsql
-	if err = config.Configuration(APP, psql); err != nil {
+	var psql Pgsql
+	if err = config.Configuration(APP, &psql); err != nil {
 		glog.Fatal(err)
 	}
-	if DB, err = New(psql); err != nil {
+	if DB, err = New(&psql); err != nil {
 		glog.Fatal(err)
 	}
 }

@@ -41,11 +41,11 @@ type Redis struct {
 
 func init() {
 	var err error
-	var rds *Redis
-	if err = config.Configuration(APP, rds); err != nil {
+	var rds Redis
+	if err = config.Configuration(APP, &rds); err != nil {
 		glog.Fatal(err)
 	}
-	if Cli, err = New(rds); err != nil {
+	if Cli, err = New(&rds); err != nil {
 		glog.Fatal(err)
 	}
 }

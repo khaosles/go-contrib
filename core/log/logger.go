@@ -42,8 +42,8 @@ type logging struct {
 }
 
 func init() {
-	var logging *logging
-	if err := config.Configuration(APP, logging); err != nil {
+	var logging logging
+	if err := config.Configuration(APP, &logging); err != nil {
 		log.Fatal(err)
 	}
 	prefix = logging.Prefix

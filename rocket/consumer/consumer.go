@@ -33,9 +33,9 @@ type cConsumer struct {
 }
 
 func init() {
-	var c *cConsumer
+	var c cConsumer
 	// 解析参数
-	if err := config.Configuration(rocket.APP, c); err != nil {
+	if err := config.Configuration(rocket.APP, &c); err != nil {
 		glog.Fatal(err)
 	}
 	rlog.SetLogLevel(c.LogLevel)
@@ -46,7 +46,7 @@ func init() {
 	glog.Info("Push consumer connect succeed")
 }
 
-func (c *cConsumer) run() error {
+func (c cConsumer) run() error {
 	var err error
 	// push
 	pushConsumer, err = rocketmq.NewPushConsumer(
