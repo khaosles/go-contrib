@@ -62,7 +62,7 @@ func (c Consumer) run() error {
 func Subscribe(topic string, selector consumer.MessageSelector,
 	cb func(context.Context, ...*primitive.MessageExt) (consumer.ConsumeResult, error)) error {
 	// 监听退出
-	g.Exit(func() {
+	go g.Exit(func() {
 		// 停止消费
 		_ = pushConsumer.Shutdown()
 		// 取消订阅

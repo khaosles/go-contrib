@@ -60,7 +60,7 @@ func (c Producer) run() error {
 		return err
 	}
 	// 检测程序退出关闭消费者
-	g.Exit(func() { _ = pro.Shutdown() })
+	go g.Exit(func() { _ = pro.Shutdown() })
 	return nil
 }
 
