@@ -33,7 +33,7 @@ func init() {
 
 	// 配置文件不存在
 	if !fileutil.IsFile(cfg) {
-		log.Fatal("Configure not exists.")
+		log.Fatal("Configure not exists ===> ", cfg)
 	}
 	// 创建viper
 	Viper = viper.New()

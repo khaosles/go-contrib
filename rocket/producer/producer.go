@@ -22,17 +22,12 @@ import (
 
 var pro rocketmq.Producer
 
-type cProducer struct {
-	NameServer []string `json:"nameServer" yaml:"name-server"`
-	AccessKey  string   `json:"accessKey" yaml:"access-key"`
-	SecretKey  string   `json:"secretKey" yaml:"secret-key"`
-	GroupName  string   `json:"groupName" yaml:"group-name"`
-	Retry      int      `json:"retry" yaml:"retry" default:"3"`
-	LogLevel   string   `json:"logLevel" yaml:"log-level" default:"error"`
+type Producer struct {
+	rocket.Rocketmq `yaml:",inline" mapstructure:",squash"`
 }
 
 func init() {
-	var c cProducer
+	var c Producer
 	// 解析参数
 	if err := config.Configuration(rocket.APP, &c); err != nil {
 		glog.Fatal(err)
@@ -45,7 +40,7 @@ func init() {
 	glog.Info("Producer connect succeed")
 }
 
-func (c cProducer) run() error {
+func (c Producer) run() error {
 	var err error
 	// 生产者
 	pro, err = rocketmq.NewProducer(
