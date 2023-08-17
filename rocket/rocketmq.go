@@ -15,5 +15,5 @@ type Rocketmq struct {
 	Topic         string   `mapstructure:"topic" default:"" yaml:"topic" json:"topic"`
 	LogLevel      string   `mapstructure:"log-level" default:"" yaml:"log-level" json:"logLevel"`
 	Retry         int      `mapstructure:"retry" default:"" yaml:"lretry" json:"retry"`
-	GroupName     string   `mapstructure:"groupName" default:"" json:"groupName" yaml:"group-name"`
+	GroupName     string   `mapstructure:"group-name" default:"" json:"groupName" yaml:"group-name"`
 }
