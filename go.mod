@@ -1,4 +1,4 @@
-module go-contrib
+module github.com/khaosles/go-contrib
 
 go 1.20
 
