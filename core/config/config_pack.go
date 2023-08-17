@@ -15,7 +15,7 @@ import (
 	"github.com/khaosles/giz/fileutil"
 	"github.com/spf13/viper"
 
-	"go-contrib/core/config/model"
+	"github.com/khaosles/go-contrib/core/config/model"
 )
 
 /*

@@ -18,7 +18,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"go-contrib/core/config"
+	"github.com/khaosles/go-contrib/core/config"
 )
 
 const (

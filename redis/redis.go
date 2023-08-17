@@ -9,8 +9,8 @@ import (
 	gerr "github.com/khaosles/gtools2/utils/err"
 	"go.uber.org/zap"
 
-	"go-contrib/core/config"
-	glog "go-contrib/core/log"
+	"github.com/khaosles/go-contrib/core/config"
+	glog "github.com/khaosles/go-contrib/core/log"
 )
 
 /*

@@ -8,13 +8,11 @@ import (
 	"github.com/apache/rocketmq-client-go/v2/consumer"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
 	"github.com/apache/rocketmq-client-go/v2/rlog"
+	"github.com/khaosles/go-contrib/core/config"
+	glog "github.com/khaosles/go-contrib/core/log"
+	"github.com/khaosles/go-contrib/rocket"
 
 	"github.com/khaosles/giz/g"
-
-	glog "go-contrib/core/log"
-
-	"go-contrib/core/config"
-	"go-contrib/rocket"
 )
 
 /*
@@ -31,16 +29,17 @@ type cConsumer struct {
 	AccessKey  string   `json:"accessKey" yaml:"access-key"`
 	SecretKey  string   `json:"secretKey" yaml:"secret-key"`
 	GroupName  string   `json:"groupName" yaml:"group-name"`
-	Retry      int      `json:"retry" yaml:"retry"`
+	Retry      int      `json:"retry" yaml:"retry" default:"3"`
+	LogLevel   string   `json:"logLevel" yaml:"log-level" default:"error"`
 }
 
 func init() {
-	rlog.SetLogLevel("error")
 	var c *cConsumer
 	// 解析参数
 	if err := config.Configuration(rocket.APP, c); err != nil {
 		log.Fatal(err)
 	}
+	rlog.SetLogLevel(c.LogLevel)
 	// 启动实例
 	if err := c.run(); err != nil {
 		log.Fatal(err)

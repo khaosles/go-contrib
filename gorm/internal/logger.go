@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/gorm/logger"
 
-	glog "go-contrib/core/log"
+	glog "github.com/khaosles/go-contrib/core/log"
 )
 
 type writer struct {

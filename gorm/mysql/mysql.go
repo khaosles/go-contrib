@@ -7,9 +7,9 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"go-contrib/core/config"
-	glog "go-contrib/core/log"
-	"go-contrib/gorm/internal"
+	"github.com/khaosles/go-contrib/core/config"
+	glog "github.com/khaosles/go-contrib/core/log"
+	"github.com/khaosles/go-contrib/gorm/internal"
 )
 
 /*

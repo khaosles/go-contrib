@@ -10,8 +10,8 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.etcd.io/etcd/client/v3/naming/endpoints"
 
-	"go-contrib/core/config"
-	glog "go-contrib/core/log"
+	"github.com/khaosles/go-contrib/core/config"
+	glog "github.com/khaosles/go-contrib/core/log"
 )
 
 /*

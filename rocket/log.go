@@ -5,7 +5,7 @@ import (
 
 	"github.com/apache/rocketmq-client-go/v2/rlog"
 
-	glog "go-contrib/core/log"
+	glog "github.com/khaosles/go-contrib/core/log"
 )
 
 /*
