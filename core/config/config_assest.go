@@ -1,16 +1,15 @@
+//go:build assest
+
 package config
 
 import (
-	"fmt"
+	"bytes"
 	"log"
 	"os"
-	"path/filepath"
 	"reflect"
 	"strconv"
 	"time"
 
-	"github.com/fsnotify/fsnotify"
-	"github.com/khaosles/giz/fileutil"
 	"github.com/spf13/viper"
 
 	"go-contrib/core/config/model"
@@ -27,41 +26,27 @@ var GCfg model.Config  // 配置类
 var Viper *viper.Viper // 配置源
 
 func init() {
-	cfg := "config/config.yaml"
-	rootPath, _ := os.Getwd()
-	cfg = filepath.Join(rootPath, cfg)
-
-	// 配置文件不存在
-	if !fileutil.IsFile(cfg) {
-		log.Fatal("Configure not exists.")
-	}
 	// 创建viper
 	Viper = viper.New()
-
-	Viper.SetConfigFile(cfg)
-	Viper.SetConfigType("yaml")
-
-	// 读取配置文件
-	err := Viper.ReadInConfig()
+	// 从打包后的文件中读取配置
+	bytesContent, err := packed.Asset("manifest/config/config.yaml")
 	if err != nil {
-		log.Fatal("Configure reading error.")
+		panic("Asset() can not found setting file")
 	}
-	Viper.WatchConfig()
-	if err = Viper.Unmarshal(&GCfg); err != nil {
+	// 设置要读取的文件类型
+	Viper.SetConfigType("yaml")
+	// 读取
+	err = Viper.ReadConfig(bytes.NewBuffer(bytesContent))
+	if err != nil {
+		log.Println(err)
+	}
+
+	err = Viper.Unmarshal(&GCfg)
+	if err != nil {
 		log.Fatal("Configure parse error.")
 	}
-
 	// 识别 default 标签
 	setDefaults(reflect.ValueOf(&GCfg).Elem())
-	// 解析配置文件
-	Viper.OnConfigChange(func(e fsnotify.Event) {
-		fmt.Println("Config file changed:", e.Name)
-		if err = Viper.Unmarshal(&GCfg); err != nil {
-			log.Fatal("Configure parse error.")
-		}
-		// 识别 default 标签
-		setDefaults(reflect.ValueOf(&GCfg).Elem())
-	})
 }
 
 func Configuration(name string, conf any) error {
@@ -108,4 +93,13 @@ func setDefaults(v reflect.Value) {
 			setDefaults(field)
 		}
 	}
+}
+
+func exist(path string) bool {
+	// path stat
+	_, err := os.Stat(path)
+	if err == nil {
+		return true
+	}
+	return false
 }

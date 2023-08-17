@@ -1,3 +1,5 @@
+//go:build pack
+
 package config
 
 import (
@@ -27,14 +29,15 @@ var GCfg model.Config  // 配置类
 var Viper *viper.Viper // 配置源
 
 func init() {
-	cfg := "config/config.yaml"
-	rootPath, _ := os.Getwd()
-	cfg = filepath.Join(rootPath, cfg)
+	cfg := "config.yaml"
+	rootPath, _ := os.Executable()
+	cfg = filepath.Join(fileutil.Dirname(rootPath), cfg)
 
 	// 配置文件不存在
-	if !fileutil.IsFile(cfg) {
+	if !fileutil.Exist(cfg) {
 		log.Fatal("Configure not exists.")
 	}
+
 	// 创建viper
 	Viper = viper.New()
 
