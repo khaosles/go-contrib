@@ -46,7 +46,6 @@ func init() {
 	if err := config.Configuration(APP, logging); err != nil {
 		log.Fatal(err)
 	}
-
 	prefix = logging.Prefix
 	encoder := zapcore.NewConsoleEncoder(zapcore.EncoderConfig{
 		MessageKey:     "message",
@@ -161,4 +160,9 @@ func Panic(args ...interface{}) {
 
 func Panicf(fmt string, args ...interface{}) {
 	Logger.Panicf(fmt, args...)
+}
+
+func Fatal(args ...interface{}) {
+	Logger.Panic(args...)
+	os.Exit(1)
 }

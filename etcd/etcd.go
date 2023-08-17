@@ -3,7 +3,6 @@ package etcd
 import (
 	"context"
 	"fmt"
-	"log"
 	"time"
 
 	"go.etcd.io/etcd/api/v3/mvccpb"
@@ -37,10 +36,10 @@ func init() {
 	var e *Etcd
 	var err error
 	if err = config.Configuration(APP, e); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	if Client, err = New(e); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 }
 

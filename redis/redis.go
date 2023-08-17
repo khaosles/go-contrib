@@ -2,7 +2,6 @@ package redis
 
 import (
 	"context"
-	"log"
 	"time"
 
 	"github.com/go-redis/redis/v8"
@@ -44,10 +43,10 @@ func init() {
 	var err error
 	var rds *Redis
 	if err = config.Configuration(APP, rds); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	if Cli, err = New(rds); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 }
 

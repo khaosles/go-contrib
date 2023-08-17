@@ -1,7 +1,6 @@
 package pgsql
 
 import (
-	"log"
 	"time"
 
 	"gorm.io/driver/postgres"
@@ -49,10 +48,10 @@ func init() {
 	var err error
 	var psql *Pgsql
 	if err = config.Configuration(APP, psql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	if DB, err = New(psql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 }
 

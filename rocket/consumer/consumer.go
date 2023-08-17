@@ -2,7 +2,6 @@ package consumer
 
 import (
 	"context"
-	"log"
 
 	"github.com/apache/rocketmq-client-go/v2"
 	"github.com/apache/rocketmq-client-go/v2/consumer"
@@ -37,12 +36,12 @@ func init() {
 	var c *cConsumer
 	// 解析参数
 	if err := config.Configuration(rocket.APP, c); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	rlog.SetLogLevel(c.LogLevel)
 	// 启动实例
 	if err := c.run(); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	glog.Info("Push consumer connect succeed")
 }

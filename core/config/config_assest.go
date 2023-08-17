@@ -31,14 +31,14 @@ func init() {
 	// 从打包后的文件中读取配置
 	bytesContent, err := packed.Asset("manifest/config/config.yaml")
 	if err != nil {
-		panic("Asset() can not found setting file")
+		log.Fatal(err)
 	}
 	// 设置要读取的文件类型
 	Viper.SetConfigType("yaml")
 	// 读取
 	err = Viper.ReadConfig(bytes.NewBuffer(bytesContent))
 	if err != nil {
-		log.Println(err)
+		log.Fatal(err)
 	}
 
 	err = Viper.Unmarshal(&GCfg)

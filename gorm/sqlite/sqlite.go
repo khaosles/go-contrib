@@ -1,8 +1,6 @@
 package sqlite
 
 import (
-	"log"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 
@@ -35,10 +33,10 @@ func init() {
 	var err error
 	var sql *Sqlite
 	if err = config.Configuration(APP, sql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	if DB, err = New(sql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 }
 

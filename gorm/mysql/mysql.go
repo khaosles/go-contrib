@@ -1,7 +1,6 @@
 package mysql
 
 import (
-	"log"
 	"time"
 
 	"gorm.io/driver/mysql"
@@ -43,10 +42,10 @@ func init() {
 	var msql *Mysql
 	var err error
 	if err = config.Configuration(APP, msql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 	if DB, err = New(msql); err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 }
 
