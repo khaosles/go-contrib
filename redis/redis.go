@@ -66,7 +66,7 @@ func New(rds *Redis) (*redis.Client, error) {
 		IdleTimeout:        rds.IdleTimeout,
 		IdleCheckFrequency: rds.IdleCheckFrequency,
 	})
-	pong, err := Cli.Ping(context.Background()).Result()
+	pong, err := rdb.Ping(context.Background()).Result()
 	if err != nil {
 		glog.Error("redis connect ping failed")
 		return nil, err
