@@ -43,6 +43,8 @@ github.com/apache/rocketmq-client-go/v2 v2.1.1 h1:WY/LkOYSQaVyV+HOqdiIgF4LE3beZ/
 github.com/apache/rocketmq-client-go/v2 v2.1.1/go.mod h1:GZzExtXY9zpI6FfiVJYAhw2IXQtgnHUuWpULo7nr5lw=
 github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20230803074138-7eedaf948c60 h1:fPAcXncjDnXdZ42031dFUP9dkBPodexvksjV+k/ckqc=
 github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20230803074138-7eedaf948c60/go.mod h1:6I6vgxHR3hzrvn+6n/4mrhS+UTulzK/X9LB2Vk1U5gE=
+github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 h1:OYA+5W64v3OgClL+IrOD63t4i/RW7RqrAVl9LTZ9UqQ=
+github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394/go.mod h1:Q8n74mJTIgjX4RBBcHnJ05h//6/k6foqmgE45jTQtxg=
 github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLju8=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
