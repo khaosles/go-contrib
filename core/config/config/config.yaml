@@ -1,0 +1,63 @@
+rpc:
+  node:
+    host: localhost
+    port: 15001
+http:
+  update:
+    host: 0.0.0.0
+    port: 15051
+    mode: debug
+  ddl:
+    host: 0.0.0.0
+    port: 15061
+    mode: debug
+  major:
+    host: 0.0.0.0
+    port: 8001
+    mode: debug
+etcd:
+  nodes:
+    - 10.242.227.81:12379
+    - 10.242.227.81:22379
+    - 10.242.227.81:32379
+  username: root
+  password: GISgis123.
+  timeout: 60
+  ttl: 10
+  server:
+    downloader: downloader
+pgsql:
+  host: 43.138.67.136
+  port: 5432
+  config: ""
+  db-name: yh_forecast
+  username: postgres
+  password: GISgis123.
+  prefix: ""
+  singular: true
+  engine: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  max-life-time: 5
+  log-mode: error
+  log-zap: true
+rocketmq:
+  name-server:
+    - 43.138.67.136:9876
+  access-key: rocketmq2
+  secret-key: GISgis123.
+  group-name: "yhkj"
+  log-level: error
+  retry: 3
+redis:
+  addr: sycai.net:6379
+  password: GISgis123.
+  db: 0
+logging:
+  level-console: debug      # 控制台日志等级
+  level-file: error          # 文件日志等级
+  path: "./logs"                  # 日志保存路径，默认程序路径下的logs目录
+  max-history: 7            # 日志保存时间
+  log-in-console: true      # 是否输出到控制台
+  log-in-file: true         # 是否输出到文件
+  show-line: true

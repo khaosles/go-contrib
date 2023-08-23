@@ -1,10 +1,8 @@
-package addr
+package config
 
 import (
 	"flag"
 	"fmt"
-
-	"github.com/khaosles/go-contrib/core/config"
 )
 
 /*
@@ -21,10 +19,10 @@ func GetAddr(serverName string) string {
 	flag.StringVar(&port, "port", "", "port")
 	flag.Parse()
 	if port == "" {
-		port = config.Viper.GetString(serverName + ".port")
+		port = Viper.GetString(serverName + ".port")
 	}
 	if host == "" {
-		host = config.Viper.GetString(serverName + ".host")
+		host = Viper.GetString(serverName + ".host")
 	}
 	return fmt.Sprintf("%s:%s", host, port)
 }
