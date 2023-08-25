@@ -1,3 +1,5 @@
+//go:build !packed
+
 package config
 
 import (
