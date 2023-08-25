@@ -1,4 +1,4 @@
-//go:build !packed || !assest
+//go:build !pack || !assest
 
 package config
 
